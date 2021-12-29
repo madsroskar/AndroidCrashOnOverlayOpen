@@ -52,7 +52,6 @@ type LocalMessageType = Record<string, unknown>;
 type LocalReactionType = Record<string, unknown>;
 type LocalUserType = Record<string, unknown>;
 
-console.log(Config)
 const chatClient = StreamChat.getInstance<
   LocalAttachmentType,
   LocalChannelType,
@@ -69,8 +68,7 @@ const user = {
 };
 
 const filters = {
-  example: 'example-apps',
-  members: {$in: ['ron']},
+  members: {$in: [Config.STREAM_USER_ID]},
   type: 'messaging',
 };
 const sort: ChannelSort<LocalChannelType> = {last_message_at: -1};
